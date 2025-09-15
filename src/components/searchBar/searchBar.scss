@@ -1,0 +1,139 @@
+@import '../../responsiveness.scss';
+
+
+.searchBar{
+
+    .type{
+
+        margin-bottom: 4px;
+        button{
+            padding: 16px 36px;
+            border: 1px solid #999;
+            background-color: white;
+            text-transform: capitalize;
+            //border-bottom: none;
+            cursor: pointer;
+
+            &.active{
+                background-color: black;
+                color: white;
+            }
+
+            &:first-child{
+                border-top-left-radius: 5px;
+                border-right: none;
+
+                @include sm{
+                    border-bottom: 1px solid #999;
+                    border-bottom-left-radius: 5px;
+                }
+            }
+
+            &:last-child{
+                border-top-right-radius: 5px;
+                border-left: none;
+
+                 @include sm{
+                    border-bottom: 1px solid #999;
+                    border-bottom-right-radius: 5px;
+                }
+            }
+        }
+    }
+
+    form{
+        //border: 1px solid #999;
+        display: flex;
+        justify-content: space-between;
+        height: 56px;
+        gap: 5px;
+
+        @include sm{
+            flex-direction: column;
+            border: none;
+        }
+
+        input{
+            border: 1px solid #999;
+            padding: 0px 10px;
+            width: 190px;
+            outline: none;
+            border-radius: 5px;
+
+
+            @include lg{
+                padding: 0px 5px;
+
+                &:nth-child(1){
+                    //min-width: 50px;
+                    width: 350px;
+                }
+
+                &:nth-child(2), &:nth-child(3){
+                    max-width: 150px;
+                }
+            }
+
+            @include md{
+                padding: 0px 3px;
+
+                &:nth-child(1){
+                    //min-width: 50px;
+                    width: 250px;
+                }
+
+                &:nth-child(2), &:nth-child(3){
+                    max-width: 100px;
+                }
+            }
+
+            @include sm{
+                padding: 10px;
+                width: auto;
+                outline: none;
+                border: 1px solid #999;
+                border-radius: 5px;
+
+                &:nth-child(1){
+                    //min-width: 50px;
+                    width: 100%;
+                }
+
+                &:nth-child(2), &:nth-child(3){
+                    min-width: 40px;
+                    max-width: 100%;
+                }
+            }
+        }
+
+        button{
+            border: none;
+            cursor: pointer;
+            flex: 1;
+            border-radius: 5px;
+            background-color: #fece51;
+
+            img{
+                width: 24px;
+                height: 24px;
+            }
+
+            @include lg{
+                max-width: 100px;
+                min-width: 40px;
+            }
+
+            @include md{
+                max-width: 100px;
+                min-width: 40px;
+            }
+
+            @include sm{
+                max-width: 50px;
+                min-width: 100%;
+                padding: 5px;
+                border-radius: 5px;
+            }
+        }
+    }
+}

@@ -1,0 +1,101 @@
+@import "../../responsiveness.scss";
+
+
+
+.profilePage{
+    display: flex;
+    height: 100%;
+    margin-top: 2px;
+    //background-color: greenyellow;
+
+    @include lg{
+        flex-direction: column;
+        overflow-y: scroll;
+    }
+
+    .details{
+        flex: 3;
+        height: 100%;
+        //background-color: burlywood;
+
+        @include lg{
+            flex: none;
+            height: max-content;
+            overflow-y: hidden;
+        }
+
+        .wrapper{
+            padding-right: 50px;
+            gap: 30px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow-y: scroll;
+            padding-bottom: 50px;
+
+            @include lg{
+            height: max-content;
+            padding-right: 5px;
+            overflow-y: hidden;
+        }
+
+            .title{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                h1{
+                    font-weight: 300;
+                }
+
+                button{
+                    padding: 12px 12px;
+                    cursor: pointer;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: #fece51;
+                }
+            }
+
+            .info{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                span{
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+
+                    img{
+                        height: 40px;
+                        width: 40px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+
+    .chatContainer{
+        flex: 2;
+        height: 100%;
+        //background-color: #fcf5f3;
+
+        @include lg{
+            flex: none;
+            height: max-content;
+            margin-top: 50px;
+        }
+
+        .wrapper{
+            padding: 0px 20px;
+            height: 100%;
+
+            @include lg{
+            padding: 0;
+        }
+        }
+    }
+}

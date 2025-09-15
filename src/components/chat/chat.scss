@@ -1,0 +1,143 @@
+.chat{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px;
+
+    .messages{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        overflow-y: scroll;
+
+        h1{
+            font-weight: bold;
+            color: black;
+        }
+
+        .message{
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            gap: 20px;
+            background-color: white;
+
+            img{
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            span{
+                font-weight: bold;
+            }
+        }
+    }
+
+    .chatBox{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: white;
+
+        .top{
+            flex: 1;
+            padding: 10px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            background-color: #f7b14c85;
+
+            .user{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                img{
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            }
+
+            .close{
+                    font-weight: bold;
+                    color: gray;
+                    cursor: pointer;
+                }
+        }
+        .center{
+            flex: 250px;
+            overflow-y: scroll;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .chatMessage{
+                width: 50%;
+
+                p{}
+                span{
+                    padding: 3px;
+                    color: gray;
+                }
+
+                &.own{
+                    align-self: flex-end;
+                    background-color: #f7c14b39;
+                    padding: 5px;
+                    border-radius: 5px;
+
+                    p{}
+                    .time{
+                        display: flex;
+                        //background-color: aquamarine;
+                        justify-content: end;
+
+                        span{
+                            padding: 3px;
+                            color: gray;
+                            //background-color: gray;
+                        }
+                    }
+                }
+            }
+        }
+
+        .bottom{
+            flex: 1;
+            border-top: 2px solid #f7b14c85;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+
+            textarea{
+                flex: 3;
+                height: 100%;
+                border: none;
+                padding: 10px;
+                outline: none;
+            }
+
+            button{
+                flex: 1;
+                height: 100%;
+                border: none;
+                cursor: pointer;
+                background-color: #f7b14c85;
+            }
+        }
+    }
+}
