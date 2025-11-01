@@ -1,11 +1,74 @@
-import React from 'react'
+import { useState } from "react";
+import "./loginPage.scss";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import apiRequest from "../../lib/apiRequest.js";
 
-const LoginPage = () => {
+
+function LoginPage() {
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+ 
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError("");
+    const formData = new FormData(e.target);
+
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    try {
+      const res = await apiRequest.post('/auth/sign-in', {
+        email,
+        password,
+      });
+
+      //console.log(res.data.data)
+      // Save user data to local storage
+      localStorage.setItem('user', JSON.stringify(res.data.data.userInfo))
+
+      //navigate user to home page
+      navigate("/");
+    } catch (err) {
+      setError(err.response.data.error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
-    <div className='loginPage'>
-        <h1>Log In</h1>
+    <div className="login">
+      <div className="formContainer">
+        <form onSubmit={handleSubmit}>
+          <h1>Welcome back</h1>
+          <input
+            name="email"
+            required
+            minLength={3}
+            maxLength={20}
+            type="text"
+            placeholder="Email"
+          />
+          <input
+            name="password"
+            type="password"
+            required
+            placeholder="Password"
+          />
+          <button disabled={isLoading}>Login</button>
+          {error && <span>{error}</span>}
+          <Link to="/register">{"Don't"} have an account?</Link>
+        </form>
+      </div>
+      <div className="imgContainer">
+        <img src="/bg.png" alt="" />
+      </div>
     </div>
-  )
+  );
 }
 
-export default LoginPage
+export default LoginPage;

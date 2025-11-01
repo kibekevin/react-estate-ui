@@ -6,6 +6,7 @@ import AboutPage from "./routes/aboutPage/AboutPage";
 import SinglePage from "./routes/singlePage/SinglePage";
 import LoginPage from "./routes/loginPage/LoginPage";
 import ProfilePage from "./routes/profilePage/ProfilePage";
+import RegisterUserPage from "./routes/registerUserPage/RegisterUserPage";
 
 function App() {
 
@@ -38,6 +39,10 @@ function App() {
                     {
                         path: "/profile",
                         element: <ProfilePage/>
+                    },
+                    {
+                        path: "/register",
+                        element: <RegisterUserPage/>
                     },
                 ]
             },
