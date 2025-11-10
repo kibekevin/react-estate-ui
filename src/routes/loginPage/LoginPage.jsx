@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./loginPage.scss";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import apiRequest from "../../lib/apiRequest.js";
+import { AuthContext } from "../../context/AuthContext.jsx";
 
 
 function LoginPage() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
- 
+  const {updateUser} = useContext(AuthContext)
+
+
 
   const navigate = useNavigate();
 
@@ -30,7 +32,8 @@ function LoginPage() {
 
       //console.log(res.data.data)
       // Save user data to local storage
-      localStorage.setItem('user', JSON.stringify(res.data.data.userInfo))
+      //localStorage.setItem('user', JSON.stringify(res.data.data.userInfo))
+      updateUser(res.data.data.userInfo)
 
       //navigate user to home page
       navigate("/");

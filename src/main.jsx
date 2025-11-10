@@ -4,9 +4,12 @@ import App from './App.jsx'
 import "./index.scss"
 import "leaflet/dist/leaflet.css";
 import "./leaflet.config.js";
+import { AuthContextProvider } from './context/AuthContext.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <AuthContextProvider>
+        <App />
+    </AuthContextProvider>
   </React.StrictMode>,
 )
