@@ -9,7 +9,7 @@ const UpdateProfilePage = () => {
 
     const { currentUser, updateUser } = useContext(AuthContext)
     const [error, setError] = useState('')
-    const [avatar, setAvatar] = useState(currentUser.avatar)
+    const [avatar, setAvatar] = useState([])
 
     const navigate = useNavigate()
 
@@ -23,7 +23,7 @@ const UpdateProfilePage = () => {
         try {
             //update user frontend logic
             const res = await apiRequest.put(`/users/${currentUser.userId}`, {
-                name, email, password, avatar
+                name, email, password, avatar:avatar[0]
             })
 
             updateUser(res.data.data.userInfo)
@@ -67,15 +67,15 @@ const UpdateProfilePage = () => {
             </form>
         </div>
         <div className="sideContainer">
-            <img src={avatar || '/noavatar.jpg'} alt="profile photo" width={148} height={148}/>
+            <img src={avatar[0] || currentUser.avatar || '/noavatar.jpg'} alt="profile photo" width={148} height={148}/>
             <UploadWidget uwConfig={{
                 cloudName: 'dnfnbnmwr',
                 uploadPreset: 'peaknest',
-                multiple: 'false',
+                multiple: false,
                 maxImageFileSize: 2000000,
                 folder: 'avatars'
                 }}
-                setAvatar={setAvatar}
+                setState={setAvatar}
             />
         </div>
       

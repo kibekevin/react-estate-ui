@@ -8,6 +8,7 @@ import LoginPage from "./routes/loginPage/LoginPage";
 import ProfilePage from "./routes/profilePage/ProfilePage";
 import RegisterUserPage from "./routes/registerUserPage/RegisterUserPage";
 import UpdateProfilePage from "./routes/updateProfilePage/UpdateProfilePage";
+import NewPostPage from "./routes/newPostPage/NewPostPage";
 
 function App() {
 
@@ -55,6 +56,10 @@ function App() {
                     {
                         path: "/profile/update",
                         element: <UpdateProfilePage/>
+                    },
+                    {
+                        path: "/add",
+                        element: <NewPostPage/>
                     }
                 ]
             }
