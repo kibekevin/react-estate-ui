@@ -9,6 +9,7 @@ import ProfilePage from "./routes/profilePage/ProfilePage";
 import RegisterUserPage from "./routes/registerUserPage/RegisterUserPage";
 import UpdateProfilePage from "./routes/updateProfilePage/UpdateProfilePage";
 import NewPostPage from "./routes/newPostPage/NewPostPage";
+import { singlePageLoader } from "./lib/loaders";
 
 function App() {
 
@@ -32,7 +33,8 @@ function App() {
                     },
                     {
                         path: "/:id",
-                        element: <SinglePage/>
+                        element: <SinglePage/>,
+                        loader: singlePageLoader
                     },
                     {
                         path: "/login",

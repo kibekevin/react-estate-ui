@@ -2,30 +2,35 @@ import Slider from "../../components/slider/Slider";
 import "./singlePage.scss";
 import { singlePostData, userData } from "../../lib/dummyData";
 import Map from "../../components/map/Map";
+import { useLoaderData } from "react-router-dom";
+import DOMPurify from 'dompurify';
 
 const SinglePage = () => {
+
+    const listing = useLoaderData()
+    console.log(listing)
+
   return (
     <div className='singlePage'>
         <div className="details">
             <div className="wrapper">
-                <Slider images={singlePostData.images}/>
+                <Slider images={listing.images}/>
                 <div className="info">
                     <div className="top">
                         <div className="post">
-                            <h1>{singlePostData.title}</h1>
+                            <h1>{listing.title}</h1>
                             <div className="address">
                                 <img src="/pin.png" alt="address" />
-                                <span>{singlePostData.address}</span>
+                                <span>{listing.address}</span>
                             </div>
-                            <div className="price">Ksh.{singlePostData.price}</div>
+                            <div className="price">Ksh.{listing.price}</div>
                         </div>
                         <div className="user">
-                            <img src={userData.img} alt="" />
-                            <span>{userData.name}</span>
+                            <img src={listing.userId.avatar} alt="" />
+                            <span>{listing.userId.name}</span>
                         </div>
                     </div>
-                    <div className="bottom">
-                        {singlePostData.description}
+                    <div className="bottom" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(listing.listingDetails.desc || '')}}>
                     </div>
                 </div>
             </div>
@@ -38,21 +43,29 @@ const SinglePage = () => {
                         <img src="/utility.png" alt="utility" />
                         <div className="featureText">
                             <span>Utilities</span>
-                            <p>Renter is responsible</p>
+                            { listing.listingDetails.utilities === 'owner' ? (
+                                <p>Owner is responsible</p>
+                            ) : (
+                                <p>Renter is responsible</p>
+                            ) }
                         </div>
                     </div>
                     <div className="feature">
                         <img src="/pet.png" alt="pet" />
                         <div className="featureText">
                             <span>Pet policy</span>
-                            <p>Pets Allowed</p>
+                            { listing.listingDetails.pet === 'allowed' ? (
+                                <p>Pets Allowed</p>
+                            ) : (
+                                <p>Pets not allowed</p>
+                            ) }
                         </div>
                     </div>
                     <div className="feature">
                         <img src="/fee.png" alt="utility" />
                         <div className="featureText">
-                            <span>Property fees</span>
-                            <p>As requested by Management</p>
+                            <span>Income Policy</span>
+                            <p>{listing.listingDetails?.income}</p>
                         </div>
                     </div>
                 </div>
@@ -60,44 +73,44 @@ const SinglePage = () => {
                 <div className="sizes">
                     <div className="size">
                         <img src="/size.png" alt="" />
-                        <span>80 Sqft</span>
+                        <span>{listing.listingDetails?.size} Sqft</span>
                     </div>
                     <div className="size">
                         <img src="/bed.png" alt="" />
-                        <span>2 Bedroom</span>
+                        <span>Bedrooms- {listing.bedroom}</span>
                     </div>
                     <div className="size">
                         <img src="/bath.png" alt="" />
-                        <span>3 Bathrooms</span>
+                        <span>Bathrooms- {listing.bathroom}</span>
                     </div>
                 </div>
                 <p className="title">Nearby Places</p>
                 <div className="listHorizontal">
                     <div className="feature">
-                        <img src="/school.png" alt="utility" />
+                        {/* <img src="/school.png" alt="utility" /> */}
                         <div className="featureText">
                             <span>School</span>
-                            <p>250m Away</p>
+                            <p>{listing.listingDetails?.school}m Away</p>
                         </div>
                     </div>
                     <div className="feature">
-                        <img src="/pet.png" alt="pet" />
+                        {/* <img src="/pet.png" alt="pet" /> */}
                         <div className="featureText">
                             <span>Bus Stop</span>
-                            <p>100m Away</p>
+                            <p>{listing.listingDetails?.bus}m Away</p>
                         </div>
                     </div>
                     <div className="feature">
-                        <img src="/fee.png" alt="utility" />
+                        {/* <img src="/fee.png" alt="utility" /> */}
                         <div className="featureText">
                             <span>Restaurant</span>
-                            <p>50m Away</p>
+                            <p>{listing.listingDetails?.restaurant}m Away</p>
                         </div>
                     </div>
                 </div>
                 <p className="title">Location</p>
                 <div className="mapContainer">
-                    <Map items={[singlePostData]}/>
+                    <Map items={[listing]}/>
                 </div>
                 <div className="buttons">
                     <button>
