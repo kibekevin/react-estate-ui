@@ -1,9 +1,14 @@
 import "./filter.scss";
 
-const filter = () => {
+const filter = ({city}) => {
+
+    
+
   return (
     <div className='filter'>
-        <h1>Search Results For <b>Nairobi</b></h1>
+        <h1>
+            {city ? `Search results for ${city}` : "Search results"}
+        </h1>
         <div className="top">
             <div className="item">
                 <label htmlFor="city">Location</label>
