@@ -25,6 +25,7 @@ const ProfilePage = () => {
         }
     }
 
+
   return (
     <div className='profilePage'>
         <div className="details">
@@ -43,12 +44,12 @@ const ProfilePage = () => {
                     <button onClick={handleLogout}>Logout</button>
                 </div>
                 <div className="title">
-                    <h1>My Listings</h1>
+                    {/* <h1>My Listings</h1> */}
                     <Link to='/add'>
                         <button>Add Listing</button>
                     </Link>
                 </div>
-                <List/>
+                {/* <List/> */}
                 <div className="title">
                     <h1>Saved Favourites</h1>
                 </div>

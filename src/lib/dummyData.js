@@ -2,7 +2,7 @@ export const listData = [
     {
         id: 1,
         title: "The Haven",
-        img: "https://i.roamcdn.net/prop/brk/listing-thumb-400w/c3751bd4f4d86c630672b9188a538da3/-/prod-property-core-backend-media-brk/7904591/ea70a5e4-bee1-45bb-8760-6549fec62fbb.jpg",
+        images: ["https://i.roamcdn.net/prop/brk/listing-thumb-400w/c3751bd4f4d86c630672b9188a538da3/-/prod-property-core-backend-media-brk/7904591/ea70a5e4-bee1-45bb-8760-6549fec62fbb.jpg"],
         bedroom: 5,
         bathroom: 6,
         price: 40000000,
@@ -13,7 +13,7 @@ export const listData = [
     {
         id: 2,
         title: "Sunset Escape",
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5baZWYLXXQzTH3fmljc7WtqtrAAG1lpClrQ&s",
+        images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5baZWYLXXQzTH3fmljc7WtqtrAAG1lpClrQ&s"],
         bedroom: 6,
         bathroom: 8,
         price: 49000000,
@@ -24,7 +24,7 @@ export const listData = [
     {
         id: 3,
         title: "The Ivory",
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCVzQErjpdiDeuYzCnWd8yxv6T0IxKS0EmYw&s",
+        images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCVzQErjpdiDeuYzCnWd8yxv6T0IxKS0EmYw&s"],
         bedroom: 4,
         bathroom: 6,
         price: 30000000,
@@ -35,7 +35,7 @@ export const listData = [
     {
         id: 4,
         title: "Ocean View",
-        img: "https://musillihomes.co.ke/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-22-at-12.48.29.jpeg",
+        images: ["https://musillihomes.co.ke/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-22-at-12.48.29.jpeg"],
         bedroom: 6,
         bathroom: 8,
         price: 55000000,
@@ -46,7 +46,7 @@ export const listData = [
     {
         id: 5,
         title: "The Pirates Villa",
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmH4FZcgGc6tYyRwdl1PcCPOVx8xCimFrQtg&s",
+        images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmH4FZcgGc6tYyRwdl1PcCPOVx8xCimFrQtg&s"],
         bedroom: 5,
         bathroom: 6,
         price: 62000000,
@@ -57,7 +57,7 @@ export const listData = [
     {
         id: 6,
         title: "Kilesh Residensies",
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmH4FZcgGc6tYyRwdl1PcCPOVx8xCimFrQtg&s",
+        images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmH4FZcgGc6tYyRwdl1PcCPOVx8xCimFrQtg&s"],
         bedroom: 5,
         bathroom: 6,
         price: 62000000,
@@ -68,7 +68,7 @@ export const listData = [
     {
         id: 7,
         title: "The Earnest",
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmH4FZcgGc6tYyRwdl1PcCPOVx8xCimFrQtg&s",
+        images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmH4FZcgGc6tYyRwdl1PcCPOVx8xCimFrQtg&s"],
         bedroom: 5,
         bathroom: 6,
         price: 62000000,

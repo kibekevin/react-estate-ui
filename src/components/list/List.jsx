@@ -3,6 +3,9 @@ import { listData } from "../../lib/dummyData";
 import Card from "../card/Card";
 
 const List = () => {
+
+    
+
   return (
     <div className='list'>
       { listData.map((item)=> (
@@ -12,4 +15,4 @@ const List = () => {
   )
 }
 
-export default List
+export default List 
