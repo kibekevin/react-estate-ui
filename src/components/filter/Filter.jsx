@@ -22,7 +22,7 @@ const Filter = ({city}) => {
         <h1>
             {city ? `Search results for ${city}` : "Search results"}
         </h1>
-        <div className="top">
+        <div className="top"> 
             <div className="item">
                 <label htmlFor="city">Location</label>
                 <input type="text" id="city" name="city" placeholder="City Location" onChange={handleChange}/>
