@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiRequest = axios.create({
-    baseURL: 'https://peaknestapi.onrender.com/api/v1',
+    baseURL: 'https://peaknestapi.onrender.com',
     withCredentials: true
 })
 
