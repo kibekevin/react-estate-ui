@@ -1,3 +1,5 @@
+// Description: Homepage component for the real estate application
+
 import { useContext } from 'react';
 import SearchBar from '../../components/searchBar/SearchBar';
 import './homepage.scss';
