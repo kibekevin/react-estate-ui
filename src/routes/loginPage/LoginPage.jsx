@@ -52,7 +52,7 @@ function LoginPage() {
             name="email"
             required
             minLength={3}
-            maxLength={20}
+            maxLength={200}
             type="text"
             placeholder="Email"
           />
