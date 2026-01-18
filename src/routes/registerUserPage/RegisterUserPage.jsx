@@ -21,14 +21,14 @@ const RegisterUserPage = () => {
         const password = formData.get('password')
 
         try {
-            const res = await apiRequest.post('/auth/sign-up',{ name, email, password })
+            await apiRequest.post('/auth/sign-up',{ name, email, password })
 
             navigate('/login')
         } catch (err) {
             //console.log(err)
             setError(err.response.data.error)
         } finally {
-            isLoading(false)
+            setIsLoading(false)
         }
     }
 

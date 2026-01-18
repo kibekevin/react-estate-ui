@@ -14,10 +14,10 @@ const Navbar = () => {
     <nav>
         <div className='left'>
             <a href="/" className="logo">
-                <img src="logo.png"/>
+                <img src="PeakNest_official_logo.png"/>
                 <span>PeakNest</span>
             </a>
-            <a href="/">Home</a>
+            {/* <a href="/">Home</a> */}
             <a href="/about">About</a>
             <a href="/contacts">Contacts</a>
             <a href="/agents">Agents</a>

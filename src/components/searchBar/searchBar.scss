@@ -108,19 +108,21 @@
 
         a{
             flex: 1;
-            background-color: #fece51;
+            background-color: lightblue;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: black;
             button{
             border: none;
             cursor: pointer;
             border-radius: 5px;
-            background-color: #fece51;
+            background-color: lightblue;
 
             img{
                 width: 24px;
                 height: 24px;
+                color: black;
             }
 
             @include lg{

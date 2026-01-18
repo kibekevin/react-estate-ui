@@ -26,7 +26,7 @@ const SinglePage = () => {
                             <div className="price">Ksh.{listing.price}</div>
                         </div>
                         <div className="user">
-                            <img src={listing.userId.avatar} alt="" />
+                            <img src={listing.userId.avatar || '/noavatar.jpg'} alt="" />
                             <span>{listing.userId.name}</span>
                         </div>
                     </div>
@@ -37,9 +37,9 @@ const SinglePage = () => {
         </div>
         <div className="features">
             <div className="wrapper">
-                <p className="title">General</p>
-                <div className="listVertical">
-                    <div className="feature">
+                {/* <p className="title">General</p>
+                <div className="listVertical"> */}
+                    {/* <div className="feature">
                         <img src="/utility.png" alt="utility" />
                         <div className="featureText">
                             <span>Utilities</span>
@@ -49,8 +49,8 @@ const SinglePage = () => {
                                 <p>Renter is responsible</p>
                             ) }
                         </div>
-                    </div>
-                    <div className="feature">
+                    </div> */}
+                    {/* <div className="feature">
                         <img src="/pet.png" alt="pet" />
                         <div className="featureText">
                             <span>Pet policy</span>
@@ -60,15 +60,15 @@ const SinglePage = () => {
                                 <p>Pets not allowed</p>
                             ) }
                         </div>
-                    </div>
-                    <div className="feature">
+                    </div> */}
+                    {/* <div className="feature">
                         <img src="/fee.png" alt="utility" />
                         <div className="featureText">
                             <span>Income Policy</span>
                             <p>{listing.listingDetails?.income}</p>
                         </div>
-                    </div>
-                </div>
+                    </div> */}
+                {/* </div> */}
                 <p className="title">Sizes</p>
                 <div className="sizes">
                     <div className="size">
@@ -84,30 +84,31 @@ const SinglePage = () => {
                         <span>Bathrooms- {listing.bathroom}</span>
                     </div>
                 </div>
-                <p className="title">Nearby Places</p>
+
+                {/* <p className="title">Nearby Places</p>
                 <div className="listHorizontal">
-                    <div className="feature">
+                    <div className="feature"> */}
                         {/* <img src="/school.png" alt="utility" /> */}
-                        <div className="featureText">
+                        {/* <div className="featureText">
                             <span>School</span>
                             <p>{listing.listingDetails?.school}m Away</p>
                         </div>
-                    </div>
-                    <div className="feature">
+                    </div> */}
+                    {/* <div className="feature"> */}
                         {/* <img src="/pet.png" alt="pet" /> */}
-                        <div className="featureText">
+                        {/* <div className="featureText">
                             <span>Bus Stop</span>
                             <p>{listing.listingDetails?.bus}m Away</p>
-                        </div>
-                    </div>
-                    <div className="feature">
+                        </div> */}
+                    {/* </div> */}
+                    {/* <div className="feature"> */}
                         {/* <img src="/fee.png" alt="utility" /> */}
-                        <div className="featureText">
+                        {/* <div className="featureText">
                             <span>Restaurant</span>
                             <p>{listing.listingDetails?.restaurant}m Away</p>
-                        </div>
-                    </div>
-                </div>
+                        </div> */}
+                    {/* </div> */}
+                {/* </div> */}
                 <p className="title">Location</p>
                 <div className="mapContainer">
                     <Map items={[listing]}/>
