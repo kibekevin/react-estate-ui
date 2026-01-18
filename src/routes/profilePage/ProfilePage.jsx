@@ -1,6 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
-import Chat from "../../components/chat/Chat";
-import List from "../../components/list/List";
+//import Chat from "../../components/chat/Chat";
+//import List from "../../components/list/List";
 import apiRequest from "../../lib/apiRequest.js";
 import "./profilePage.scss";
 import { useContext } from "react";
@@ -46,21 +46,21 @@ const ProfilePage = () => {
                 <div className="title">
                     {/* <h1>My Listings</h1> */}
                     <Link to='/add'>
-                        <button>Add Listing</button>
+                        <button>Add Listing +</button>
                     </Link>
                 </div>
                 {/* <List/> */}
-                <div className="title">
+                {/* <div className="title">
                     <h1>Saved Favourites</h1>
                 </div>
-                <List/>
+                <List/> */}
             </div>
         </div>
-        <div className="chatContainer">
+        {/* <div className="chatContainer">
             <div className="wrapper">
                 <Chat/>
             </div>
-        </div>
+        </div> */}
     </div>
   )
 }

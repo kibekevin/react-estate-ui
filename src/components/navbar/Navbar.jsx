@@ -29,7 +29,7 @@ const Navbar = () => {
                     <img src={currentUser.avatar || '/noavatar.jpg'} alt="" />
                     <span className="userName">{currentUser.username}</span>
                     <Link to="/profile" className="profile">
-                        <div className="notifications">3</div>
+                        {/* <div className="notifications">3</div> */}
                         <span>Profile</span>
                     </Link>
                 </div>) : 
