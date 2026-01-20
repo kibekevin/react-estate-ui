@@ -155,6 +155,20 @@ const NewPostPage = () => {
                 <option value="house">House</option>
                 <option value="condo">Condo</option>
                 <option value="land">Land</option>
+                <option value="villa">Villa</option>
+                <option value="cottage">Cottage</option>
+                <option value="duplex">Duplex</option>
+                <option value="studio">Studio</option>
+                <option value="townhouse">Townhouse</option>
+                <option value="penthouse">Penthouse</option>
+                <option value="mansion">Mansion</option>
+                <option value="farmhouse">Farmhouse</option>
+                <option value="bungalow">Bungalow</option>
+                <option value="maisonette">Maisonette</option>
+                <option value="loft">Loft</option>
+                <option value="chalet">Chalet</option>
+                <option value="cabin">Cabin</option>
+                <option value="office">Office</option>
               </select>
             </div>
 
