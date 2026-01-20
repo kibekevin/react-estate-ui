@@ -14,8 +14,11 @@ export const listPageLoader = async({request, params}) => {
     const { searchParams } = new URL(request.url);  // inside loader
     const city = searchParams.get("city") || "";
 
+    // Sort listings by createdAt in descending order (most recent first)
+    const sortedListings = res.data.data.listings.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
     return {
-        listings:res.data.data.listings,
+        listings: sortedListings,
         city
     }
 }

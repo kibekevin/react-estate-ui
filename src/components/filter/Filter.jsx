@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./filter.scss"; 
 
@@ -13,9 +13,33 @@ const Filter = ({city}) => {
         bedroom:''
     })
 
+    const [suggestions, setSuggestions] = useState([]);
+
     const handleChange = (e) => {
         setQuery((prev) => ({...prev, [e.target.name]: e.target.value}))
     }
+
+    const fetchSuggestions = async (city) => {
+        if (!city) {
+            setSuggestions([]);
+            return;
+        }
+        try {
+            const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(city)}&format=json&limit=5&addressdetails=1&countrycodes=KE`);
+            const data = await response.json();
+            setSuggestions(data.map(item => item.display_name));
+        } catch (error) {
+            console.error('Error fetching suggestions:', error);
+            setSuggestions([]);
+        }
+    };
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            fetchSuggestions(query.city);
+        }, 300);
+        return () => clearTimeout(timeoutId);
+    }, [query.city]);
 
   return (
     <div className='filter'>
@@ -25,7 +49,21 @@ const Filter = ({city}) => {
         <div className="top"> 
             <div className="item">
                 <label htmlFor="city">Location</label>
-                <input type="text" id="city" name="city" placeholder="City Location" onChange={handleChange}/>
+                <div className="city-input-container">
+                    <input type="text" id="city" name="city" placeholder="City Location" onChange={handleChange} value={query.city}/>
+                    { suggestions.length > 0 && (
+                        <ul className="suggestions">
+                            {suggestions.map((suggestion, index) => (
+                                <li key={index} onClick={() => {
+                                    setQuery(prev => ({...prev, city: suggestion}));
+                                    setSuggestions([]);
+                                }}>
+                                    {suggestion}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
             </div>
         </div>
         <div className="bottom">

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './newPostPage.scss';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -11,8 +11,41 @@ const NewPostPage = () => {
     const [value, setValue] = useState('')
     const [error, setError] = useState('')
     const [images, setImages] = useState([])
+    const [city, setCity] = useState('')
+    const [suggestions, setSuggestions] = useState([])
 
     const navigate = useNavigate();
+
+    const fetchSuggestions = async (cityInput) => {
+        if (!cityInput) {
+            setSuggestions([]);
+            return;
+        }
+        try {
+            const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(cityInput)}&format=json&limit=5&addressdetails=1&countrycodes=KE`);
+            const data = await response.json();
+            setSuggestions(data.map(item => item.display_name));
+        } catch (error) {
+            console.error('Error fetching suggestions:', error);
+            setSuggestions([]);
+        }
+    };
+
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            fetchSuggestions(city);
+        }, 300);
+        return () => clearTimeout(timeoutId);
+    }, [city]);
+
+    const handleCityChange = (e) => {
+        setCity(e.target.value);
+    };
+
+    const handleSuggestionClick = (suggestion) => {
+        setCity(suggestion);
+        setSuggestions([]);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -26,7 +59,7 @@ const NewPostPage = () => {
                     title:inputs.title,
                     price:inputs.price,
                     address:inputs.address,
-                    city:inputs.city,
+                    city: city || inputs.city,
                     bedroom:inputs.bedroom,
                     bathroom:inputs.bathroom,
                     listingType:inputs.listingType,
@@ -77,7 +110,18 @@ const NewPostPage = () => {
             </div>
             <div className="item">
               <label htmlFor="city">City</label>
-              <input id="city" name="city" type="text" />
+              <div className="city-input-container">
+                <input id="city" name="city" type="text" value={city} onChange={handleCityChange} />
+                { suggestions.length > 0 && (
+                  <ul className="suggestions">
+                    {suggestions.map((suggestion, index) => (
+                      <li key={index} onClick={() => handleSuggestionClick(suggestion)}>
+                        {suggestion}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             </div>
             <div className="item">
               <label htmlFor="bedroom">Bedroom Number</label>
