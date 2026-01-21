@@ -46,7 +46,7 @@ const ProfilePage = () => {
                 <div className="title">
                     {/* <h1>My Listings</h1> */}
                     <Link to='/add'>
-                        <button>Add Listing +</button>
+                        { currentUser.userEmail === 'kevingitahi100@gmail.com' && <button>Add Listing +</button> }
                     </Link>
                 </div>
                 {/* <List/> */}

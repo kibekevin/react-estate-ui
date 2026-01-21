@@ -25,10 +25,10 @@ const SinglePage = () => {
                             </div>
                             <div className="price">Ksh.{listing.price}</div>
                         </div>
-                        <div className="user">
+                        {/* <div className="user">
                             <img src={listing.userId.avatar || '/noavatar.jpg'} alt="" />
                             <span>{listing.userId.name}</span>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="bottom" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(listing.listingDetails.desc || '')}}>
                     </div>

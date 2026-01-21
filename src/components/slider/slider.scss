@@ -107,9 +107,14 @@
         gap: 10px;
         overflow: hidden;
 
+        @include md{
+            display: none;
+        }
+
         @include sm{
         flex: none;
         flex-direction: row;
+        display: none;
     }
 
         img{

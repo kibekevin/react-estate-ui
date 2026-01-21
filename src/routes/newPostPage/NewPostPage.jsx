@@ -228,7 +228,8 @@ const NewPostPage = () => {
                 maxImageFileSize: 2000000,
                 folder: 'listings'
                 }}
-                setState={setImages}
+                images={images}
+                setImages={setImages}
             />
       </div>
     </div>

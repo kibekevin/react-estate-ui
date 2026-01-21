@@ -75,7 +75,8 @@ const UpdateProfilePage = () => {
                 maxImageFileSize: 2000000,
                 folder: 'avatars'
                 }}
-                setState={setAvatar}
+                images={avatar}
+                setImages={setAvatar}
             />
         </div>
       

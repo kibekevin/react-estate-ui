@@ -38,6 +38,10 @@
 
             .info{
                 margin-top: 50px;
+
+                @include md{
+                    margin-top: 20px;
+                }
                 
                 .top{
                     display: flex;
